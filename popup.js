@@ -1,12 +1,15 @@
-chrome.runtime.onMessage.addListener(async (message) => {
-  console.log("Received URL:", message.url);  // Debugging log
-
-  const statusElement = document.getElementById("status");
-  const url = message.url;
-
-  // Get prediction using the dummy ML model (check_url function)
-  const prediction = await check_url(url);
-
-  // Update the popup with the result
-  statusElement.textContent = `URL: ${url}\nStatus: ${prediction}`;
+document.addEventListener('DOMContentLoaded', function() {
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    var currentUrl = tabs[0].url;
+    checkUrl(currentUrl).then(data => {
+      var resultElement = document.getElementById('result');
+      if (data.is_phishing) {
+        resultElement.textContent = 'Warning: This may be a phishing URL!';
+        resultElement.style.color = 'red';
+      } else {
+        resultElement.textContent = 'This website is safe to browse.';
+        resultElement.style.color = 'green';
+      }
+    });
+  });
 });

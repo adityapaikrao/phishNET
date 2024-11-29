@@ -1,11 +1,7 @@
-async function check_url(url) {
-    // Dummy logic for testing
-    if (url.includes("google.com")) {
-      return "Phishing";
-    } else if (url.includes("youtube.com")) {
-      return "Safe";
-    } else {
-      return "Unknown";
-    }
+function checkUrl(url) {
+    return new Promise((resolve, reject) => {
+      const lowercaseUrl = url.toLowerCase();
+      const isPhishing = lowercaseUrl.includes('google.com');
+      resolve({ is_phishing: isPhishing });
+    });
   }
-  
