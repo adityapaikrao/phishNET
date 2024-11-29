@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phishing URL Detector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    #status {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>URL Status</h1>
+  <p id="status">Waiting for URL...</p>
+  <script src="check_url.js"></script>  <!-- Only include check_url.js -->
+  <script src="popup.js"></script>     <!-- Make sure popup.js is included last -->
+</body>
+</html>

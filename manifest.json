@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Phishing URL Detector",
+  "version": "1.0.0",
+  "description": "Extension to check if the URL is a phishing URL",
+  "permissions": ["tabs", "webRequest", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/site-browser.png",
+      "32": "icons/site.png",
+      "128": "icons/link-alt.png"
+    }
+  },
+  "icons": {
+    "16": "icons/site-browser.png",
+    "32": "icons/site.png",
+    "128": "icons/link-alt.png"
+  }
+}
