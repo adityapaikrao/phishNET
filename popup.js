@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     var currentUrl = tabs[0].url;
     checkUrl(currentUrl).then(data => {
+      console.log(currentUrl)
       var resultElement = document.getElementById('result');
       if (data.is_phishing) {
         resultElement.textContent = 'Warning: This may be a phishing URL!';
